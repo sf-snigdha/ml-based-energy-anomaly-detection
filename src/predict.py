@@ -11,8 +11,10 @@ from pathlib import Path
 import joblib
 import pandas as pd
 
-from features import prepare_features
-
+try:
+    from .features import prepare_features
+except ImportError:
+    from features import prepare_features
 
 MODEL_DIR = Path("models")
 
