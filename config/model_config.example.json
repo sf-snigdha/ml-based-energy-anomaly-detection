@@ -1,0 +1,30 @@
+{
+  "model_name": "energy_anomaly_isolation_forest",
+  "model_type": "IsolationForest",
+  "version": "demo-v1",
+
+  "features": [
+    "heat_demand_mw",
+    "base_electric_load_mw",
+    "pv_generation_mw",
+    "hp_electric_power_mw",
+    "hp_thermal_power_mw",
+    "cop_model",
+    "p2h_electric_power_mw",
+    "chp_electric_power_mw",
+    "coupling_bus_voltage_pu",
+    "grid_import_mw",
+    "max_line_loading_pct",
+    "unserved_heat_mw",
+    "network_supply_temp_k",
+    "network_return_temp_k"
+  ],
+
+  "cop_median": 3.0,
+
+  "threshold": 0.6,
+
+  "score_definition": "-model.score_samples(X_scaled)",
+
+  "decision_rule": "ANOMALY if anomaly_score >= threshold"
+}

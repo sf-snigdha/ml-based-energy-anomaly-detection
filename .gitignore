@@ -1,0 +1,36 @@
+# Real/confidential datasets
+data/*
+!data/README.md
+
+*.parquet
+*.csv
+
+# Internal trained model artifacts
+*.joblib
+*.pkl
+*.pickle
+
+# Results / experiments
+results/
+fault_datasets/
+threshold_analysis/
+final_test_results*/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Allow explicitly created public synthetic examples
+!examples/
+!examples/*.csv
