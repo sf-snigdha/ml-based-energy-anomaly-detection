@@ -6,3 +6,5 @@ fastapi>=0.115
 uvicorn>=0.30
 shap>=0.52
 matplotlib>=3.8
+sentence-transformers>=5.0
+openai>=1.0

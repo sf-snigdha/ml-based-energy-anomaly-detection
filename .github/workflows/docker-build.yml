@@ -1,0 +1,36 @@
+name: Docker Build and API Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  docker-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t cygro-anomaly-api .
+
+      - name: Start API container
+        run: |
+          docker run -d \
+            --name cygro-api \
+            -p 8000:8000 \
+            cygro-anomaly-api
+
+      - name: Wait for API
+        run: sleep 10
+
+      - name: Test health endpoint
+        run: |
+          curl --fail http://localhost:8000/health
+
+      - name: Show container logs if needed
+        if: always()
+        run: docker logs cygro-api

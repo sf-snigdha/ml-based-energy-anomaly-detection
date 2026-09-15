@@ -1,0 +1,17 @@
+.git
+.github
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+data/
+docs/
+examples/
+
+RAG_SETUP.md
+
+src/rag/
+src/xai/
+
+*.csv

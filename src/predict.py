@@ -16,8 +16,8 @@ try:
 except ImportError:
     from features import prepare_features
 
-MODEL_DIR = Path("models")
-
+BASE_DIR = Path(__file__).resolve().parents[1]
+MODEL_DIR = BASE_DIR / "models"
 
 class EnergyAnomalyDetector:
 
